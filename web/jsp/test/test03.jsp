@@ -1,5 +1,6 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ko">
 <head>
@@ -9,26 +10,22 @@
 <body>
 
     <%
-        Calendar cal = Calendar.getInstance();
+        // 어떤 정보를 보여줄지, "date", "time"
+        String what = request.getParameter("what");
 
-        int currentYear = cal.get(Calendar.YEAR);
-        int currentMonth = cal.get(Calendar.MONTH)+1;
-        int currentDay = cal.get(Calendar.DATE);
-        int currentHour = cal.get(Calendar.HOUR_OF_DAY);
-        int currentMinute = cal.get(Calendar.MINUTE);
-        int currentSecond = cal.get(Calendar.SECOND);
+        Date date = new Date();
+        String result = null;
+        if(what.equals("date")) {
+            SimpleDateFormat formatter = new SimpleDateFormat("오늘 날짜 yyyy년 M월 d일");
+            result = formatter.format(date);
+        } else if (what.equals("time")) {
+            SimpleDateFormat formatter = new SimpleDateFormat("현재시간 H시 m분 s초");
+            result = formatter.format(date);
+        }
     %>
 
     <div class="container">
-        <div class="date display-2">
-            오늘 날짜 <b><%= currentYear %></b>년
-            <b><%= currentMonth %>월</b>
-            <b><%= currentDay %></b>일
-        </div>
-        <div class="time display-2">
-            현재 시간 <b><%= currentHour %></b>시
-            <b><%= currentMinute %></b>분
-            <b><%= currentSecond %></b>초
+        <div class="date display-2"><%= result %>
         </div>
     </div>
 
