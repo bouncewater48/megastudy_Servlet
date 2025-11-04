@@ -1,25 +1,17 @@
 #wrap {
-    width: 1200px;
-    height: 800px;
+    width:1200px;
     margin: 0 auto;
 }
 
 header {
-    height: 100px;
+    height:100px;
 }
 
 .main-menu {
-    height: 40px;
+    height:40px;
 }
 
-.contents {
-    height: 500px;
-}
-
-.contents>.contents-head {
-    height: 40px;
-}
 
 footer {
-    height: 80px;
+    height:80px;
 }

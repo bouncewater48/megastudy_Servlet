@@ -1,0 +1,12 @@
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.main-menu {
+    height: 40px;
+}
+
+.contents {
+    height: 500px;
+}

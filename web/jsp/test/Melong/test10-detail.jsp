@@ -85,6 +85,10 @@
         musicInfo.put("composer", "아이유,이종훈,이채규");
         musicInfo.put("lyricist", "아이유");
         musicList.add(musicInfo);
+
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        String title = request.getParameter("title");
     %>
 
     <div id="wrap">
@@ -112,7 +116,11 @@
 
         <h3>곡 정보</h3>
 
-        <% for(Map<String, Object> song:musicList) { %>
+        <% for(Map<String, Object> song:musicList) {
+
+            if(id == (Integer)song.get("id")) {
+
+            int time = (Integer)song.get("time");%>
         <section class="contents">
             <div class="d-flex border border-success p-3">
                 <div>
@@ -124,19 +132,19 @@
                     <br>
 
                     <div class="d-flex text-info">
-                        <div class="">앨범</div>
-                        <div class=""><%= song.get("album") %></div>
+                        <div>앨범 - </div>
+                        <div><%= song.get("album") %></div>
                     </div>
                     <div class="d-flex text-info">
-                        <div>재생시간</div>
-                        <div><%= song.get("time") %></div>
+                        <div>재생시간 - </div>
+                        <div><%= time / 60 %> : <%= time % 60 %></div>
                     </div>
                     <div class="d-flex text-info">
-                        <div>작곡가</div>
+                        <div>작곡가 - </div>
                         <div><%= song.get("composer") %></div>
                     </div>
                     <div class="d-flex text-info">
-                        <div>작사가</div>
+                        <div>작사가 - </div>
                         <div><%= song.get("lyricist") %></div>
                     </div>
                 </div>
@@ -146,7 +154,8 @@
                 <hr>
                 <div>가사 없음</div>
             </div>
-            <% } %>
+            <% }
+            }%>
         </section> <br>
 
         <footer>
