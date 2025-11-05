@@ -1,0 +1,44 @@
+<%@ page import="com.bouncewater.common.MysqlService" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="ko">
+<head>
+    <title>사용자 리스트</title>
+</head>
+<body>
+<%
+    MysqlService mysqlService = new MysqlService();
+
+    MysqlService.connect();
+
+    MysqlService.select("SELECT * FROM `new_user`;");
+
+    List<Map<String, Object>> userList = mysqlService.select("SELECT * FROM `new_user`;");
+
+%>
+
+    <h3>사용자 리스트</h3>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>이메일</th>
+                <th>자기소개</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        <% for(Map<String, Object> user:userList) {%>
+            <tr>
+                <td><%= user.get("name") %></td>
+                <td><%= user.get("email") %></td>
+                <td><%= user.get("introduce") %></td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+
+</body>
+</html>
