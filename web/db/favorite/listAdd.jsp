@@ -6,7 +6,7 @@
 <body>
 
     <h1>즐겨찾기 추가</h1>
-    <form method="post" action="/db/favorite/list.jsp">
+    <form method="post" action="/db/favorite/insert">
             <label>사이트명:</label> <br>
             <input type="text" name="name"><br>
             <label>사이트 주소:</label> <br>

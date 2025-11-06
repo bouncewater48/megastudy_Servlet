@@ -33,7 +33,7 @@
                     <tr>
                         <td><%= favorite.get("name") %></td>
                         <td><a href="<%= favorite.get("url") %>"></a><%= favorite.get("url") %></td>
-                        <td><a href="#" class="btn btn-danger btn-sm">삭제</a></td>
+                        <td><a href="/db/favorite/delete?id=<%= favorite.get("id") %>" class="btn btn-danger btn-sm">삭제</a></td>
                     </tr>
                 <% } %>
             </tbody>

@@ -27,6 +27,7 @@ public class FavoriteInsertController extends HttpServlet {
 
         mysqlService.update(query);
 
+        mysqlService.disconnect();
         response.sendRedirect("/db/favorite/list.jsp");
 
     }
